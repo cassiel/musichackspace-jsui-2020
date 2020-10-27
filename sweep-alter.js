@@ -25,7 +25,7 @@ function bang() {
     this.patcher.apply(iterator);
 }
 
-// First technique:
+// First technique (a bit long-winded, but avoids closure hassles):
 function count_buttons() {
     var result = 0;
 
