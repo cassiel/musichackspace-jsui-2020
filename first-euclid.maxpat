@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 81.0, 105.0, 659.0, 566.0 ],
+		"rect" : [ 78.0, 88.0, 659.0, 566.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,42 @@
 		"subpatcher_template" : "cassiel",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 120.0, 500.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 405.0, 235.0, 124.0, 20.0 ],
+					"text" : "seq_data 1 1 0 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 360.0, 190.0, 189.0, 20.0 ],
+					"text" : "compile parsing-transport"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-32",
 					"maxclass" : "button",
@@ -197,7 +233,7 @@
 			}
 , 			{
 				"box" : 				{
-					"filename" : "Delorme:/Users/nick/GITHUB/cassiel/musichackspace-jsui-2020/first-euclid.js",
+					"filename" : "parsing-transport.js",
 					"id" : "obj-1",
 					"maxclass" : "jsui",
 					"numinlets" : 1,
@@ -210,6 +246,20 @@
 			}
  ],
 		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-11", 0 ]
@@ -304,6 +354,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-25", 2 ],
 					"source" : [ "obj-6", 0 ]
 				}
@@ -325,7 +382,7 @@
 			}
  ],
 		"dependency_cache" : [ 			{
-				"name" : "first-euclid.js",
+				"name" : "parsing-transport.js",
 				"bootpath" : "~/GITHUB/cassiel/musichackspace-jsui-2020",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
@@ -350,6 +407,8 @@
 , 			{
 				"name" : "cassiel",
 				"default" : 				{
+					"textcolor" : [ 0.646639, 0.821777, 0.854593, 1.0 ],
+					"locked_bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -359,11 +418,9 @@
 						"proportion" : 0.39
 					}
 ,
-					"locked_bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 					"fontname" : [ "Courier" ],
 					"editing_bgcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
-					"bgcolor" : [ 0.163647, 0.174699, 0.17409, 1.0 ],
-					"textcolor" : [ 0.646639, 0.821777, 0.854593, 1.0 ]
+					"bgcolor" : [ 0.163647, 0.174699, 0.17409, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
