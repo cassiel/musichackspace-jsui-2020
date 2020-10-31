@@ -1,6 +1,7 @@
 // Globals:
 
 var RADIUS = 0.8;
+var DOT_RADIUS = 0.07;
 
 var pos_in_bar = 0.0;
 
@@ -42,9 +43,9 @@ function dots(this_step) {
             if (i == this_step) {
                 glcolor(1, 0.8, 0, 1);
                 if (the_sequence_data[i]) {
-                    circle(0.07);
+                    circle(DOT_RADIUS);
                 } else {
-                    framecircle(0.07);
+                    framecircle(DOT_RADIUS);
                 }
             } else {
                 glcolor(1, 1, 1, 1);
@@ -91,6 +92,25 @@ function bang() {
     }
 
     refresh();
+}
+
+function onclick(x, y) {
+    var [wx, wy] = sketch.screentoworld(x, y);
+    //post(wx, wy);
+    //post();
+
+    for (var i = 0; i < the_sequence_data.length; i++) {
+        var angle = i * Math.PI * 2 / the_sequence_data.length;
+        var [dot_x, dot_y] = [RADIUS * Math.sin(angle),
+                              RADIUS * Math.cos(angle)];
+        var dist = Math.sqrt(Math.pow(wx - dot_x, 2) + Math.pow(wy - dot_y, 2));
+
+        if (dist < DOT_RADIUS) {
+            post("DOT: " + i);
+            post();
+            the_sequence_data[i] = 1 - the_sequence_data[i];
+        }
+    }
 }
 
 sketch.default2d();
